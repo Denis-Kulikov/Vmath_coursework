@@ -4,17 +4,9 @@
 
 const double h = 0.1;
 
-// const day = 90;
 #define DAY 90
 #define N 2798170
 
-
-const double aE     = 0.999;
-const double aI     = 0.999;
-const double ck     = 0.042;
-const double ro     = 0.952;
-const double beta   = 0.999;
-const double myu    = 0.0188;
 
 enum
 {
