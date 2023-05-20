@@ -4,7 +4,7 @@ APP_NAME = ex
 TEST_NAME = test
 
 # CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -w
+CFLAGS = 
 CFLAGS_TEST = -I src -MMD
 CPPFLAGS = -I src -MP -MMD
 
