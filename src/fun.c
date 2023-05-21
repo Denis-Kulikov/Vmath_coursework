@@ -21,10 +21,10 @@ double fun_e (double s, double e, double i)
 
 double fun_i (double e, double i)
 {
-    return ck * e - beta * i - myu * i;
+    return ck * e - (beta + myu) * i;
 }
 
-double fun_r (double e, double y, double i)
+double fun_r (double e, double i)
 {
     return beta * i + ro * e ;
 }
