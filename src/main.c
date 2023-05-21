@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "lib.h"
 
-const double h = 0.1;
+const double h = 1;
 
 #define DAY 90
 #define N 2798170
@@ -58,7 +58,7 @@ double Runge_Kutta (double s, double e, double i, double r, double d, double dat
 
 int main (int argc, char* argv[])
 {
-    double data[DAY + 1][5], *data_ = data[DAY];
+    double data[DAY + 1][5], *data_ = data[DAY], real_data[10];
     FILE* fd = fopen("data/result.txt", "w");
     if (fd == NULL)
         return -1;
@@ -71,13 +71,17 @@ int main (int argc, char* argv[])
 
     Runge_Kutta(data[0][S], data[0][E], data[0][I], data[0][R], data[0][D], data_);
 
+    
+
     printf("S\t\tE\tI\tR\tD\n");
     for (int i = 0; i < DAY; i++) {
         Runge_Kutta(data[i][S], data[i][E], data[i][I], data[i][R], data[i][D], data[i + 1]);
         if (i % 10 == 0);
             // printf("%0.2f\t%0.2f\t%0.2f\t%0.2f\t%0.2f\t\n", data[i][S], data[i][E], data[i][I], data[i][R], data[i][D], data[i + 1]);
-        fprintf(fd, "%d\t%f\n", i + 1, (data[i + 1][E] + data[i + 1][I] + data[i + 1][R]) - 
+        fprintf(fd, "%d\t%f\t", i + 1, (data[i + 1][E] + data[i + 1][I] + data[i + 1][R]) - 
                                        (data[i][E] + data[i][I] + data[i][R]));
+
+        if (i % 10 == 0);
     }
 
     for (int i = 0; i < 5; i++)
